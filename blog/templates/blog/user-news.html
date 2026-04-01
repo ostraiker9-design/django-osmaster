@@ -1,0 +1,72 @@
+{% extends "blog/base.html" %}
+
+{% block title %}  {{title}}  {% endblock %}
+
+{% block content %}
+    <h2>Author: {{ view.kwargs.username }}</h2>
+    <h4>posts: {{ page_obj.paginator.count }}</h4>
+    {% for post in news %}
+    <div class="alert alert-light">
+        <h1>{{ post.title }}</h1>
+        <p>{{post.text|striptags|truncatechars:200}}</p>
+        
+        <div class="news-user-data">
+            <img src="{{ post.author.profile.img.url }}" alt="{{ post.author.username }}">
+            <div>
+                <span class="text-muted">Publication: {{ post.date|date:"j F Y, H:i" }}</span>
+                <p>Author: <mark>{{ post.author }}</mark></p>
+            </div>
+        </div>
+
+        <a href="{% url 'news-detail' post.id %}" class="btn btn-warning">Read more</a>
+
+    </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a href="{% url 'home' %}" class="btn btn-outline-danger">First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-danger">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if num == page_obj.number %}
+                <button class="btn btn-danger">{{ num }} </button>
+            {% elif num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+                <a href="?page={{ num }}" class="btn btn-outline-danger">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-danger">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-danger">Last</a>
+        {% endif %}
+    {% endif %}
+
+    
+
+{% endblock %}
+
+{% block aside_block %}
+<h3>Side part</h3>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis magni voluptas ut sunt voluptates quos expedita maiores cupiditate veritatis. Numquam deleniti sint ipsam facere, enim eum accusamus. Consequuntur veniam similique consectetur. Quos cum harum facilis, velit nam magni, dolorem corrupti commodi itaque doloribus eveniet perspiciatis error! Sed obcaecati tenetur quia.</p>
+
+                    
+
+<h4 class='mt-2'>8 найкращих опенсорсних інструментів для ШІ-розробників</h4>
+<img src="https://itproger.com/img/news/x1725705137.jpg.pagespeed.ic.wdzYliigZB.webp" class="img-thumbnail">
+<p>Якщо ви хочете прискорити розробку та підвищити якість своїх ШІ-проектів, ці інструменти допоможуть вам впоратися із завданнями швидко та ефективно. У добірці – 8 популярних та цікавих рішень для ШІ.</p>
+
+<a href="https://itproger.com/ua/news/8-luchshih-opensorsnih-instrumentov-dlya-ii-razrabotchikov">
+    <button class="btn btn-warning">Check</button>
+</a>
+
+
+<h4 class='mt-5'>Завдання на логіку: Міст та ліхтарик</h4>
+<img src="https://itproger.com/img/tasks/x1712923827.jpg.pagespeed.ic.BuZBtdnxNh.webp" class="img-thumbnail">
+<p>Логічні головоломки - чудовий спосіб тренувати розум та розвивати аналітичні навички. Сьогодні ми розглянемо цікаве завдання, яке потребує застосування стратегічного мислення та планування.</p>
+
+<a href="https://itproger.com/ua/tasks/zadacha-na-logiku-most-i-fonarik">
+    <button class="btn btn-warning">Check</button>
+</a>
+{% endblock %}

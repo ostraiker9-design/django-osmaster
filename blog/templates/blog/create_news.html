@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+
+{% block title %}  Add new post  {% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <form method="POST" class="form-register auth">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">Add</button>
+        
+    </form>
+{% endblock %}
+
+{% block aside_block %}
+<h3>Side part</h3>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis magni voluptas ut sunt voluptates quos expedita maiores cupiditate veritatis. Numquam deleniti sint ipsam facere, enim eum accusamus. Consequuntur veniam similique consectetur. Quos cum harum facilis, velit nam magni, dolorem corrupti commodi itaque doloribus eveniet perspiciatis error! Sed obcaecati tenetur quia.</p>
+
+                    
+
+<h4 class='mt-2'>8 найкращих опенсорсних інструментів для ШІ-розробників</h4>
+<img src="https://itproger.com/img/news/x1725705137.jpg.pagespeed.ic.wdzYliigZB.webp" class="img-thumbnail">
+<p>Якщо ви хочете прискорити розробку та підвищити якість своїх ШІ-проектів, ці інструменти допоможуть вам впоратися із завданнями швидко та ефективно. У добірці – 8 популярних та цікавих рішень для ШІ.</p>
+
+<a href="https://itproger.com/ua/news/8-luchshih-opensorsnih-instrumentov-dlya-ii-razrabotchikov">
+    <button class="btn btn-warning">Check</button>
+</a>
+
+
+<h4 class='mt-5'>Завдання на логіку: Міст та ліхтарик</h4>
+<img src="https://itproger.com/img/tasks/x1712923827.jpg.pagespeed.ic.BuZBtdnxNh.webp" class="img-thumbnail">
+<p>Логічні головоломки - чудовий спосіб тренувати розум та розвивати аналітичні навички. Сьогодні ми розглянемо цікаве завдання, яке потребує застосування стратегічного мислення та планування.</p>
+
+<a href="https://itproger.com/ua/tasks/zadacha-na-logiku-most-i-fonarik">
+    <button class="btn btn-warning">Check</button>
+</a>
+{% endblock %}

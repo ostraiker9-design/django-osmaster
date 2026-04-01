@@ -1,0 +1,92 @@
+body {
+    background: #d5d5d5;
+}
+
+::selection {
+    background-color: #2a2a2a;
+    color: #e63535;
+}
+
+.alert-light {
+    border-color: #bfbfbf;
+}
+
+.form-register {
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid silver;
+    margin-top: 20px;
+    clear: both; 
+}
+
+.form-register.auth input,
+.form-register.auth textarea {
+    display: block;
+    width: 96%;
+    margin-top: 5px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.form-exit{
+    display: inline-block;
+}
+
+.form-register .helptext {
+    color: #b7b7b7;
+}
+
+.form-register ul.errorlist {
+    color: #ca5858;
+    font-weight: bold;
+}
+
+.dashboard {
+    border-bottom: 5px solid gray;
+
+}
+
+.dashboard>div {
+    display: flex;
+}
+
+.dashboard h1 {
+    margin-bottom: 20px;
+}
+
+.dashboard img, .news-user-data img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+
+.dashboard .username {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #424242;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+footer {
+    width: 70%;
+    margin-left: 15% !important;
+    margin-top: 50px;
+}
+
+.update-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.news-user-data {
+    display: flex;
+    align-items: center;
+}
+
